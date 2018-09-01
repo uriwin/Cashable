@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/game_bg">
+
+
+    <ImageView
+        android:id="@+id/ten_dollar"
+        android:layout_width="115dp"
+        android:layout_height="75dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.907"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.692"
+        app:srcCompat="@drawable/ten_dollars" />
+
+    <ImageView
+        android:id="@+id/safe_box"
+        android:layout_width="243dp"
+        android:layout_height="112dp"
+        android:layout_marginLeft="71dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.927"
+        app:srcCompat="@drawable/cash_box_03" />
+
+    <ImageView
+        android:id="@+id/twenty_dollars"
+        android:layout_width="110dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.283"
+        app:srcCompat="@drawable/twenty_dollars" />
+
+    <ImageView
+        android:id="@+id/one_hundread_shekels"
+        android:layout_width="110dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.417"
+        app:srcCompat="@drawable/one_hundred_shekels" />
+
+    <ImageView
+        android:id="@+id/fifty_shekels"
+        android:layout_width="110dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fifty_shekels"
+        app:layout_constraintVertical_bias="0.551" />
+
+    <TextView
+        android:id="@+id/safe_box_sum"
+        android:layout_width="200dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="396dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="@android:dimen/app_icon_size"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/reset_safe_box_sum"
+        android:layout_width="114dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="47dp"
+        app:layout_constraintHorizontal_bias="0.905"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/reset_btn_normal"
+        tools:layout_editor_absoluteY="47dp"
+        tools:layout_editor_absoluteX="245dp" />
+
+    <ImageView
+        android:id="@+id/fifty_euro"
+        android:layout_width="110dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="148dp"
+        app:layout_constraintHorizontal_bias="0.89"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fifty_euro" />
+
+    <ImageView
+        android:id="@+id/twenty_euro"
+        android:layout_width="110dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="218dp"
+        app:layout_constraintHorizontal_bias="0.89"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/twenty_euro" />
+
+    <ImageView
+        android:id="@+id/ten_euro"
+        android:layout_width="110dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="288dp"
+        app:layout_constraintHorizontal_bias="0.89"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ten_euro" />
+
+    <ImageView
+        android:id="@+id/twenty_shekels"
+        android:layout_width="110dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="358dp"
+
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/twenty_shekels" />
+
+    <TextView
+        android:id="@+id/target_number"
+        android:layout_width="162dp"
+        android:layout_height="103dp"
+        android:clickable="false"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="40dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="115dp" />
+
+    <TextView
+        android:id="@+id/timerTextView"
+        android:layout_width="87dp"
+        android:layout_height="68dp"
+        android:textSize= "32sp"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="@drawable/clock"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="42dp"
+        app:layout_constraintHorizontal_bias="0.501" />
+
+    <TextView
+        android:id="@+id/score_view"
+        android:layout_width="106dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="457dp"
+        android:text="0"
+
+        android:textAlignment="center"
+        android:textSize="38sp"
+        app:layout_constraintHorizontal_bias="0.942"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="59dp"
+        android:layout_height="55dp"
+        app:srcCompat="@drawable/rsz_coins_03"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="502dp"
+        app:layout_constraintHorizontal_bias="0.824" />
+
+</android.support.constraint.ConstraintLayout>

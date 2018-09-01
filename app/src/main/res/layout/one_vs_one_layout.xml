@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/game_bg">
+
+
+    <ImageButton
+        android:id="@+id/reset_cash_register_sum_player1"
+        android:layout_width="110dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="502dp"
+        app:srcCompat="@drawable/reset_btn_normal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.923" />
+
+    <ImageView
+        android:id="@+id/five_sheksels_player1"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.692"
+        app:srcCompat="@drawable/five_shekalim" />
+
+    <ImageView
+        android:id="@+id/cash_register_player1"
+        android:layout_width="187dp"
+        android:layout_height="82dp"
+        android:layout_marginLeft="99dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="#000000"
+        app:layout_constraintVertical_bias="0.913"
+        app:srcCompat="@drawable/cash_box_03" />
+
+    <ImageView
+        android:id="@+id/fifty_shekels_player1"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.583"
+        app:srcCompat="@drawable/fifty_shekels" />
+
+    <TextView
+        android:id="@+id/cash_register_sum_player1"
+        android:layout_width="122dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="423dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/one_shekel_player1"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="427dp"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/one_shekalim" />
+
+    <ImageView
+        android:id="@+id/two_shekels_player1"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="427dp"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/two_shekalim_new2" />
+
+    <ImageView
+        android:id="@+id/ten_shekels_player1"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="372dp"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ten_shekalim" />
+
+    <ImageView
+        android:id="@+id/twenty_shekels_player1"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="319dp"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/twenty_shekels" />
+
+
+    <TextView
+        android:id="@+id/target_number_player1"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="340dp"
+        android:clickable="false"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        android:textColor="#000000"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/score_view_player1"
+        android:layout_width="87dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="521dp"
+        android:text="0"
+
+        android:textAlignment="center"
+        android:textSize="38sp"
+        app:layout_constraintHorizontal_bias="0.134"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/timerTextView"
+        android:layout_width="78dp"
+        android:layout_height="39dp"
+        android:textSize= "32sp"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="@drawable/clock"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="301dp" />
+
+    <TextView
+        android:id="@+id/timerTextView_player2"
+        android:layout_width="78dp"
+        android:layout_height="39dp"
+        android:textSize= "32sp"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="@drawable/clock"
+        android:rotation="180"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="254dp" />
+
+    <TextView
+        android:id="@+id/score_view_player2"
+        android:layout_width="87dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:text="0"
+        android:rotation="180"
+        android:textAlignment="center"
+        android:textSize="38sp"
+        app:layout_constraintHorizontal_bias="0.851"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/target_number_player2"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="204dp"
+        android:clickable="false"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        android:textColor="#000000"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:rotation="180"/>
+
+    <ImageView
+        android:id="@+id/twenty_shekels_player2"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="235dp"
+        android:rotation="180"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/twenty_shekels" />
+
+    <ImageView
+        android:id="@+id/ten_shekels_player2"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="171dp"
+        android:rotation="180"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ten_shekalim" />
+
+    <ImageView
+        android:id="@+id/two_shekels_player2"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="116dp"
+        android:rotation="180"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/two_shekalim_new2" />
+
+    <ImageView
+        android:id="@+id/one_shekel_player2"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="116dp"
+        android:rotation="180"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/one_shekalim" />
+
+    <ImageButton
+        android:id="@+id/reset_cash_register_sum_player2"
+        android:layout_width="110dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="46dp"
+        android:rotation="180"
+        app:layout_constraintHorizontal_bias="0.058"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/reset_btn_normal" />
+
+    <TextView
+        android:id="@+id/cash_register_sum_player2"
+        android:layout_width="122dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="128dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        android:textColor="#000000"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:rotation="180" />
+
+    <ImageView
+        android:id="@+id/fifty_shekels_player2"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="235dp"
+        android:rotation="180"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fifty_shekels" />
+
+    <ImageView
+        android:id="@+id/cash_register_player2"
+        android:layout_width="187dp"
+        android:layout_height="82dp"
+        android:layout_marginLeft="99dp"
+        android:rotation="180"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.09"
+        app:srcCompat="@drawable/cash_box_03" />
+
+    <ImageView
+        android:id="@+id/five_sheksels_player2"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        android:rotation="180"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.318"
+        app:srcCompat="@drawable/five_shekalim" />
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dana.mygame.Activities.Levels">
+
+    <Button
+        android:id="@+id/button_1"
+        android:layout_width="82dp"
+        android:layout_height="70dp"
+        android:lineSpacingExtra="8sp"
+        android:text="1"
+        android:textAlignment="center"
+
+        android:textAllCaps="false"
+        android:textSize="35sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintVertical_bias="0.322" />
+
+    <Button
+        android:id="@+id/button_2"
+        android:layout_width="82dp"
+        android:layout_height="70dp"
+        android:lineSpacingExtra="8sp"
+        android:text="2"
+        android:textAlignment="center"
+
+        android:textAllCaps="false"
+        android:textSize="35sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32"
+        app:layout_constraintHorizontal_bias="0.501" />
+
+    <Button
+        android:id="@+id/button_3"
+        android:layout_width="82dp"
+        android:layout_height="70dp"
+        android:lineSpacingExtra="8sp"
+        android:text="3"
+        android:textAlignment="center"
+
+        android:textAllCaps="false"
+        android:textSize="35sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.866"
+        app:layout_constraintVertical_bias="0.327" />
+
+    <Button
+        android:id="@+id/button_4"
+        android:layout_width="82dp"
+        android:layout_height="70dp"
+        android:lineSpacingExtra="8sp"
+        android:text="4"
+        android:textAlignment="center"
+
+        android:textAllCaps="false"
+        android:textSize="35sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintVertical_bias="0.553" />
+
+    <Button
+        android:id="@+id/button_5"
+        android:layout_width="82dp"
+        android:layout_height="70dp"
+        android:lineSpacingExtra="8sp"
+        android:text="5"
+        android:textAlignment="center"
+
+        android:textAllCaps="false"
+        android:textSize="35sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.553" />
+
+    <Button
+        android:id="@+id/button_6"
+        android:layout_width="82dp"
+        android:layout_height="70dp"
+        android:lineSpacingExtra="8sp"
+        android:text="6"
+        android:textAlignment="center"
+
+        android:textAllCaps="false"
+        android:textSize="35sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.553"
+        app:layout_constraintHorizontal_bias="0.866" />
+
+    <Button
+        android:id="@+id/button_7"
+        android:layout_width="82dp"
+        android:layout_height="70dp"
+        android:lineSpacingExtra="8sp"
+        android:text="7"
+        android:textAlignment="center"
+
+        android:textAllCaps="false"
+        android:textSize="35sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintVertical_bias="0.8" />
+
+    <Button
+        android:id="@+id/button_8"
+        android:layout_width="82dp"
+        android:layout_height="70dp"
+        android:lineSpacingExtra="8sp"
+        android:text="8"
+        android:textAlignment="center"
+
+        android:textAllCaps="false"
+        android:textSize="35sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8" />
+
+    <Button
+        android:id="@+id/button_9"
+        android:layout_width="82dp"
+        android:layout_height="70dp"
+        android:lineSpacingExtra="8sp"
+        android:text="9"
+        android:textAlignment="center"
+
+        android:textAllCaps="false"
+        android:textSize="35sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.866"
+        app:layout_constraintVertical_bias="0.8" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="210dp"
+        android:layout_height="81dp"
+        android:lineSpacingExtra="10sp"
+        android:text="level 1"
+        android:textAlignment="center"
+        android:textSize="@android:dimen/notification_large_icon_height"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037" />
+
+</android.support.constraint.ConstraintLayout>

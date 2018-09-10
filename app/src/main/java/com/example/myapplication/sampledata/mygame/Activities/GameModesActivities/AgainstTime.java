@@ -1,8 +1,6 @@
 package com.example.myapplication.sampledata.mygame.Activities.GameModesActivities;
 
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,16 +20,22 @@ public class AgainstTime extends BasicGame {
 
         //PlayGifView pGif = (PlayGifView) findViewById(R.id.pig_gif);
         //pGif.setImageResource(R.drawable.pig_gif2);
+        int player_id = 0;
+        players_score = new int [1];
+        players_score[player_id] = 0;
 
-        final CashRegister cash_register = new CashRegister((ImageView) findViewById(R.id.cash_register));
-        final TextView cash_register_view = (TextView) findViewById(R.id.cash_register_sum);
-        final TextView CountDownCounter = (TextView) findViewById(R.id.timerTextView);
-        final TextView Score_view = (TextView) findViewById(R.id.score_view);
+        CashRegister [] cash_registers = new CashRegister[1];
+        TextView [] cash_registers_views = new TextView[1];
+        TargetNumber[] target_numbers = new TargetNumber[1];
 
+        cash_registers[0] = new CashRegister((ImageView) findViewById(R.id.cash_register));
+        cash_registers_views[0] = (TextView) findViewById(R.id.cash_register_sum);
+
+        TextView CountDownCounter = (TextView) findViewById(R.id.timerTextView);
+        TextView Score_view = (TextView) findViewById(R.id.score_view);
 
         int final_target_number = get_random_number(999);
-        final TargetNumber target_Number = new TargetNumber(final_target_number, (TextView) findViewById(R.id.target_number), 999);
-
+        target_numbers[0] = new TargetNumber(final_target_number, (TextView) findViewById(R.id.target_number), 999);
 
         long start_play_time = 60000;
         start_timer(CountDownCounter, start_play_time);
@@ -48,16 +52,16 @@ public class AgainstTime extends BasicGame {
 
 
         ImageButton reset_cash_register_button = (ImageButton) findViewById(R.id.reset_cash_register_sum);
-        reset_cash_register(reset_cash_register_button, cash_register, cash_register_view);
+        reset_cash_register(reset_cash_register_button, cash_registers[0], cash_registers_views[0]);
 
-        MoveMoeny(cash_register, one_shekel, cash_register_view, target_Number, Score_view);
-        MoveMoeny(cash_register, two_shekels, cash_register_view, target_Number, Score_view);
-        MoveMoeny(cash_register, five_shekels, cash_register_view, target_Number, Score_view);
-        MoveMoeny(cash_register, ten_shekels, cash_register_view, target_Number, Score_view);
-        MoveMoeny(cash_register, twenty_shekels, cash_register_view, target_Number, Score_view);
-        MoveMoeny(cash_register, fifty_shekels, cash_register_view, target_Number, Score_view);
-        MoveMoeny(cash_register, two_hundread_shekels, cash_register_view, target_Number, Score_view);
-        MoveMoeny(cash_register, one_hundread_shekels, cash_register_view, target_Number, Score_view);
+        MoveMoney(cash_registers, one_shekel, cash_registers_views, target_numbers, Score_view, player_id);
+        MoveMoney(cash_registers, two_shekels, cash_registers_views, target_numbers, Score_view, player_id);
+        MoveMoney(cash_registers, five_shekels, cash_registers_views, target_numbers, Score_view, player_id);
+        MoveMoney(cash_registers, ten_shekels, cash_registers_views, target_numbers, Score_view, player_id);
+        MoveMoney(cash_registers, twenty_shekels, cash_registers_views, target_numbers, Score_view, player_id);
+        MoveMoney(cash_registers, fifty_shekels, cash_registers_views, target_numbers, Score_view, player_id);
+        MoveMoney(cash_registers, two_hundread_shekels, cash_registers_views, target_numbers, Score_view, player_id);
+        MoveMoney(cash_registers, one_hundread_shekels, cash_registers_views, target_numbers, Score_view, player_id);
     }
 
 

@@ -37,30 +37,24 @@ public class Infinity extends BasicGame {
         TextView[] cash_registers_views = new TextView[1];
         TargetNumber[] target_numbers = new TargetNumber[1];
 
-
-        cash_registers[0] = new CashRegister((ImageView) findViewById(R.id.cash_register));
-        cash_registers_views[0] = (TextView) findViewById(R.id.cash_register_sum);
+        cash_registers[player_id] = new CashRegister((ImageView) findViewById(R.id.cash_register));
+        cash_registers_views[player_id] = (TextView) findViewById(R.id.cash_register_sum);
         final TextView Score_view = (TextView) findViewById(R.id.score_view);
         count_down_views[player_id] = (TextView) findViewById(R.id.timerTextView);
 
-
         int final_target_number = get_next_target_number();
-        target_numbers[0] = new TargetNumber(final_target_number, (TextView) findViewById(R.id.target_number), 999);
-
-        start_timer(count_down_views, play_time);
+        target_numbers[player_id] = new TargetNumber(final_target_number, (TextView) findViewById(R.id.target_number), 999);
 
         ImageButton reset_cash_register_button = (ImageButton) findViewById(R.id.reset_cash_register_sum);
-        reset_cash_register(reset_cash_register_button, cash_registers[0], cash_registers_views[0]);
+        reset_cash_register(reset_cash_register_button, cash_registers[player_id], cash_registers_views[player_id]);
 
         int[] money_objects_value = new int[]{200, 80, 35, 40, 20, 50, 70, 100};
         ImageView[] money_objects_view = new ImageView[]{findViewById(R.id.fifty_euro), findViewById(R.id.twenty_euro), findViewById(R.id.ten_dollar),
                 findViewById(R.id.ten_euro), findViewById(R.id.twenty_shekels), findViewById(R.id.fifty_shekels), findViewById(R.id.twenty_dollars), findViewById(R.id.one_hundread_shekels)};
 
-        Money[] money_objects = new Money[8];
-        for (int i = 0; i < money_objects.length; i++) {
-            money_objects[i] = new Money(money_objects_value[i], money_objects_view[i]);
-        }
+        Money[] money_objects = get_money_objects(money_objects_value, money_objects_view);
 
+        start_timer(count_down_views, play_time);
         MoveMoney(cash_registers, money_objects, cash_registers_views, target_numbers, Score_view, player_id);
     }
 

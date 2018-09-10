@@ -38,23 +38,22 @@ public class AgainstTime extends BasicGame {
         int final_target_number = get_random_number(999);
         target_numbers[0] = new TargetNumber(final_target_number, (TextView) findViewById(R.id.target_number), 999);
 
-        long play_time = 60000;
-        start_timer(count_down_views, play_time);
 
         int[] money_objects_value = new int[]{1, 2, 5, 10, 20, 50, 100, 200};
         ImageView[] money_objects_view = new ImageView[]{findViewById(R.id.one_shekel), findViewById(R.id.two_shekels), findViewById(R.id.five_sheksels),
                 findViewById(R.id.ten_shekels), findViewById(R.id.twenty_shekels), findViewById(R.id.fifty_shekels), findViewById(R.id.one_hundread_shekels), findViewById(R.id.two_hundread_shekels)};
 
-        Money[] money_objects = new Money[8];
-        for (int i = 0; i < money_objects.length; i++) {
-            money_objects[i] = new Money(money_objects_value[i], money_objects_view[i]);
-        }
+        Money[] money_objects = get_money_objects(money_objects_value, money_objects_view);
 
         ImageButton reset_cash_register_button = (ImageButton) findViewById(R.id.reset_cash_register_sum);
         reset_cash_register(reset_cash_register_button, cash_registers[0], cash_registers_views[0]);
 
+        long play_time = 60000;
+        start_timer(count_down_views, play_time);
+
         MoveMoney(cash_registers, money_objects, cash_registers_views, target_numbers, Score_view, player_id);
     }
+
 
 
 }

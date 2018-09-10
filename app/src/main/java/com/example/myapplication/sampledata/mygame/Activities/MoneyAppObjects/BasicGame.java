@@ -23,6 +23,15 @@ public abstract class BasicGame extends AppCompatActivity {
     protected CountDownTimer count_down_timer;
     protected long sec_to_reach_target_number = 0;
 
+
+    public Money [] get_money_objects(int[] money_objects_value,  ImageView[] money_objects_view){
+        Money[] money_objects = new Money[money_objects_value.length];
+        for (int i = 0; i < money_objects.length; i++) {
+            money_objects[i] = new Money(money_objects_value[i], money_objects_view[i]);
+        }
+        return money_objects;
+    }
+
     public boolean money_in_bounds_of_CashRegister(CashRegister cash_register, ImageView image) {
         int cash_register_X_left = cash_register.getImage_view().getLeft();
         int cash_register_Y_up = cash_register.getImage_view().getTop();

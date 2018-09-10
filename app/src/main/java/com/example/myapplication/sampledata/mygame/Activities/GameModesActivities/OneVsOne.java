@@ -25,9 +25,7 @@ public class OneVsOne extends BasicGame {
         players_score[player_1] = 0;
         players_score[player_2] = 0;
 
-        //for both players
         int final_target_number = get_random_number(199);
-//        minimum_clicks = minimum_touches_to_reach_the_target_number(final_target_number);
 
         CashRegister[] cash_registers = new CashRegister[2];
         TextView[] cash_registers_views = new TextView[2];
@@ -35,8 +33,6 @@ public class OneVsOne extends BasicGame {
         TextView[] count_down_views = new TextView[2];
 
         //player 1
-
-
         cash_registers[player_1] = new CashRegister((ImageView) findViewById(R.id.cash_register_player1));
         cash_registers_views[player_1] = (TextView) findViewById(R.id.cash_register_sum_player1);
         final TextView Score_view_player_1 = (TextView) findViewById(R.id.score_view_player1);
@@ -47,7 +43,6 @@ public class OneVsOne extends BasicGame {
 
 
         // player 2
-
         cash_registers[player_2] = new CashRegister((ImageView) findViewById(R.id.cash_register_player2));
         cash_registers_views[player_2] = (TextView) findViewById(R.id.cash_register_sum_player2);
         final TextView Score_view_player_2 = (TextView) findViewById(R.id.score_view_player2);
@@ -65,15 +60,8 @@ public class OneVsOne extends BasicGame {
         ImageView[] player_two_money_objects_view = new ImageView[]{findViewById(R.id.one_shekel_player2), findViewById(R.id.two_shekels_player2), findViewById(R.id.five_sheksels_player2),
                 findViewById(R.id.ten_shekels_player2), findViewById(R.id.twenty_shekels_player2), findViewById(R.id.fifty_shekels_player2)};
 
-
-        Money[] player_one_money_objects = new Money[6];
-        for (int i = 0; i < player_one_money_objects.length; i++) {
-            player_one_money_objects[i] = new Money(money_objects_value[i], player_one_money_objects_view[i]);
-        }
-        Money[] player_two_money_objects = new Money[6];
-        for (int i = 0; i < player_two_money_objects.length; i++) {
-            player_two_money_objects[i] = new Money(money_objects_value[i], player_two_money_objects_view[i]);
-        }
+        Money[] player_one_money_objects = get_money_objects(money_objects_value, player_one_money_objects_view);
+        Money[] player_two_money_objects = get_money_objects(money_objects_value, player_two_money_objects_view);
 
         count_down_views[player_1] = (TextView) findViewById(R.id.timerTextView);
         count_down_views[player_2] = (TextView) findViewById(R.id.timerTextView_player2);

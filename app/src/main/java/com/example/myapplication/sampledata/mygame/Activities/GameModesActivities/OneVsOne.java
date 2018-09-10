@@ -1,7 +1,6 @@
 package com.example.myapplication.sampledata.mygame.Activities.GameModesActivities;
 
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,12 +13,6 @@ import com.example.myapplication.sampledata.mygame.Activities.MoneyAppObjects.Ta
 
 
 public class OneVsOne extends BasicGame {
-    private float xCoOrdinate, yCoOrdinate;
-    private int minimum_clicks;
-    private long sec_to_reach_target_number = 0;
-    private long timeRemaining = 60000;
-    private CountDownTimer ct;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,23 +29,13 @@ public class OneVsOne extends BasicGame {
         int final_target_number = get_random_number(199);
 //        minimum_clicks = minimum_touches_to_reach_the_target_number(final_target_number);
 
-        final TextView CountDownCounter = (TextView) findViewById(R.id.timerTextView);
-        final TextView CountDownCounter_player2 = (TextView) findViewById(R.id.timerTextView_player2);
-
-        start_timer(CountDownCounter, CountDownCounter_player2);
-        ct.start();
-
         CashRegister[] cash_registers = new CashRegister[2];
         TextView[] cash_registers_views = new TextView[2];
         TargetNumber[] target_numbers = new TargetNumber[2];
+        TextView[] count_down_views = new TextView[2];
+
         //player 1
 
-        Money one_shekel_player_1 = new Money(1, (ImageView) findViewById(R.id.one_shekel_player1));
-        Money two_shekels_player_1 = new Money(2, (ImageView) findViewById(R.id.two_shekels_player1));
-        Money five_shekels_player_1 = new Money(5, (ImageView) findViewById(R.id.five_sheksels_player1));
-        Money ten_shekels_player_1 = new Money(10, (ImageView) findViewById(R.id.ten_shekels_player1));
-        Money twenty_shekels_player_1 = new Money(20, (ImageView) findViewById(R.id.twenty_shekels_player1));
-        Money fifty_shekels_player_1 = new Money(50, (ImageView) findViewById(R.id.fifty_shekels_player1));
 
         cash_registers[player_1] = new CashRegister((ImageView) findViewById(R.id.cash_register_player1));
         cash_registers_views[player_1] = (TextView) findViewById(R.id.cash_register_sum_player1);
@@ -64,12 +47,6 @@ public class OneVsOne extends BasicGame {
 
 
         // player 2
-        Money one_shekel_player_2 = new Money(1, (ImageView) findViewById(R.id.one_shekel_player2));
-        Money two_shekels_player_2 = new Money(2, (ImageView) findViewById(R.id.two_shekels_player2));
-        Money five_shekels_player_2 = new Money(5, (ImageView) findViewById(R.id.five_sheksels_player2));
-        Money ten_shekels_player_2 = new Money(10, (ImageView) findViewById(R.id.ten_shekels_player2));
-        Money twenty_shekels_player_2 = new Money(20, (ImageView) findViewById(R.id.twenty_shekels_player2));
-        Money fifty_shekels_player_2 = new Money(50, (ImageView) findViewById(R.id.fifty_shekels_player2));
 
         cash_registers[player_2] = new CashRegister((ImageView) findViewById(R.id.cash_register_player2));
         cash_registers_views[player_2] = (TextView) findViewById(R.id.cash_register_sum_player2);
@@ -80,49 +57,32 @@ public class OneVsOne extends BasicGame {
         reset_cash_register(reset_player_2, cash_registers[player_2], cash_registers_views[player_2]);
 
 
-        MoveMoney(cash_registers, one_shekel_player_1, cash_registers_views, target_numbers, Score_view_player_1, player_1);
-        MoveMoney(cash_registers, two_shekels_player_1, cash_registers_views, target_numbers, Score_view_player_1, player_1);
-        MoveMoney(cash_registers, five_shekels_player_1, cash_registers_views, target_numbers, Score_view_player_1, player_1);
-        MoveMoney(cash_registers, ten_shekels_player_1, cash_registers_views, target_numbers, Score_view_player_1, player_1);
-        MoveMoney(cash_registers, twenty_shekels_player_1, cash_registers_views, target_numbers, Score_view_player_1, player_1);
-        MoveMoney(cash_registers, fifty_shekels_player_1, cash_registers_views, target_numbers, Score_view_player_1, player_1);
+        int[] money_objects_value = new int[]{1, 2, 5, 10, 20, 50};
 
-        MoveMoney(cash_registers, one_shekel_player_2, cash_registers_views, target_numbers, Score_view_player_2, player_2);
-        MoveMoney(cash_registers, two_shekels_player_2, cash_registers_views, target_numbers, Score_view_player_2, player_2);
-        MoveMoney(cash_registers, five_shekels_player_2, cash_registers_views, target_numbers, Score_view_player_2, player_2);
-        MoveMoney(cash_registers, ten_shekels_player_2, cash_registers_views, target_numbers, Score_view_player_2, player_2);
-        MoveMoney(cash_registers, twenty_shekels_player_2, cash_registers_views, target_numbers, Score_view_player_2, player_2);
-        MoveMoney(cash_registers, fifty_shekels_player_2, cash_registers_views, target_numbers, Score_view_player_2, player_2);
+        ImageView[] player_one_money_objects_view = new ImageView[]{findViewById(R.id.one_shekel_player1), findViewById(R.id.two_shekels_player1), findViewById(R.id.five_sheksels_player1),
+                findViewById(R.id.ten_shekels_player1), findViewById(R.id.twenty_shekels_player1), findViewById(R.id.fifty_shekels_player1)};
 
-    }
-
-    public void start_timer(final TextView CountDownCounter, final TextView CountDownCounter_player2) {
-
-        ct = new CountDownTimer(timeRemaining, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-
-                CountDownCounter.setText(String.valueOf(millisUntilFinished / 1000));
-                CountDownCounter_player2.setText(String.valueOf(millisUntilFinished / 1000));
-                sec_to_reach_target_number += 1;
-                timeRemaining = millisUntilFinished;
-
-                if (10000 > millisUntilFinished) {
-                    CountDownCounter.setBackgroundResource(R.drawable.clock_end_of_time);
-                    CountDownCounter_player2.setBackgroundResource(R.drawable.clock_end_of_time);
-                }
-            }
+        ImageView[] player_two_money_objects_view = new ImageView[]{findViewById(R.id.one_shekel_player2), findViewById(R.id.two_shekels_player2), findViewById(R.id.five_sheksels_player2),
+                findViewById(R.id.ten_shekels_player2), findViewById(R.id.twenty_shekels_player2), findViewById(R.id.fifty_shekels_player2)};
 
 
-            public void onFinish() {
-                CountDownCounter.setText(String.valueOf(0));
-                CountDownCounter_player2.setText(String.valueOf(0));
-                //Intent intent = new Intent(OneVsOne.this, ScoreAgainstTime.class);
-                //intent.putExtra("Score", score);
-                //startActivity(intent);
-            }
+        Money[] player_one_money_objects = new Money[6];
+        for (int i = 0; i < player_one_money_objects.length; i++) {
+            player_one_money_objects[i] = new Money(money_objects_value[i], player_one_money_objects_view[i]);
+        }
+        Money[] player_two_money_objects = new Money[6];
+        for (int i = 0; i < player_two_money_objects.length; i++) {
+            player_two_money_objects[i] = new Money(money_objects_value[i], player_two_money_objects_view[i]);
+        }
 
-        };
+        count_down_views[player_1] = (TextView) findViewById(R.id.timerTextView);
+        count_down_views[player_2] = (TextView) findViewById(R.id.timerTextView_player2);
+
+        long play_time = 60000;
+        start_timer(count_down_views, play_time);
+
+        MoveMoney(cash_registers, player_one_money_objects, cash_registers_views, target_numbers, Score_view_player_1, player_1);
+        MoveMoney(cash_registers, player_two_money_objects, cash_registers_views, target_numbers, Score_view_player_2, player_2);
     }
 
 }

@@ -49,25 +49,29 @@ public abstract class BasicGame extends AppCompatActivity {
     }
 
 
-    public void start_timer(final TextView CountDownCounter, long play_time) {
+    public void start_timer(final TextView [] count_down_views, long time_remaining) {
 
-        count_down_timer = new CountDownTimer(play_time, 1000) {
+        count_down_timer = new CountDownTimer(time_remaining, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-
-                CountDownCounter.setText(String.valueOf(millisUntilFinished / 1000));
+                for (TextView count_down_view : count_down_views){
+                    count_down_view.setText(String.valueOf(millisUntilFinished / 1000));
+                }
                 sec_to_reach_target_number += 1;
-
                 if (10000 > millisUntilFinished) {
-                    CountDownCounter.setBackgroundResource(R.drawable.clock_end_of_time);
+                    for (TextView count_down_view : count_down_views){
+                        count_down_view.setBackgroundResource(R.drawable.clock_end_of_time);
+                    }
+
                 }
             }
 
             @Override
             public void onFinish() {
-                CountDownCounter.setText(String.valueOf(0));
+                for (TextView count_down_view : count_down_views){
+                    count_down_view.setText(String.valueOf(0));
+                }
             }
-
         /*
         public void onFinish() {
             CountDownCounter.setText(String.valueOf(0));
@@ -88,22 +92,26 @@ public abstract class BasicGame extends AppCompatActivity {
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    public void MoveMoney(CashRegister [] cash_registers, Money  money, TextView [] cash_registers_view, TargetNumber [] targets_number, TextView score_view, int player_id) {
-        money.get_image().setOnTouchListener((view, event) -> {
-            switch (event.getActionMasked()) {
-                case MotionEvent.ACTION_DOWN:
-                    motion_event_pressed(view, money, event, cash_registers);
-                    break;
-                case MotionEvent.ACTION_MOVE:
-                    view.animate().x(event.getRawX() + xCoOrdinate).y(event.getRawY() + yCoOrdinate).setDuration(0).start();
-                    break;
-                case MotionEvent.ACTION_UP:
-                    motion_event_released(cash_registers, money, cash_registers_view, targets_number, score_view, player_id);
-                    view.animate().x(money.get_default_X()).y(money.get_default_Y()).setDuration(0).start();
-                    break;
-            }
-            return true;
-        });
+    public void MoveMoney(CashRegister [] cash_registers, Money [] money_objects, TextView [] cash_registers_view, TargetNumber [] targets_number, TextView score_view, int player_id) {
+        for(Money money_object : money_objects)
+        {
+            money_object.get_image().setOnTouchListener((view, event) -> {
+                switch (event.getActionMasked()) {
+                    case MotionEvent.ACTION_DOWN:
+                        motion_event_pressed(view, money_object, event, cash_registers);
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        view.animate().x(event.getRawX() + xCoOrdinate).y(event.getRawY() + yCoOrdinate).setDuration(0).start();
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        motion_event_released(cash_registers, money_object, cash_registers_view, targets_number, score_view, player_id);
+                        view.animate().x(money_object.get_default_X()).y(money_object.get_default_Y()).setDuration(0).start();
+                        break;
+                }
+                return true;
+            });
+        }
+
     }
 
     public void motion_event_pressed(View view, Money money, MotionEvent event, CashRegister [] cash_registers) {

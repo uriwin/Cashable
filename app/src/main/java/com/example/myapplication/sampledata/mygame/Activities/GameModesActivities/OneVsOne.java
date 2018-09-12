@@ -36,11 +36,7 @@ public class OneVsOne extends BasicGame {
         reset_button_player_1 = findViewById(R.id.reset_cash_register_sum_player1);
         reset_button_player_2 = findViewById(R.id.reset_cash_register_sum_player2);
 
-        initialize_target();
-        initialize_score();
-        initialize_cash_register();
-        initialize_money_objects();
-        initialize_timer();
+        initializer();
     }
 
     @Override
@@ -101,6 +97,14 @@ public class OneVsOne extends BasicGame {
         target_numbers = new Target[2];
         target_numbers[player_1] = new Target(final_target_number, findViewById(R.id.target_number_player1), 199);
         target_numbers[player_2] = new Target(final_target_number, findViewById(R.id.target_number_player2), 199);
+    }
+
+    private void initializer(){
+        initialize_target();
+        initialize_score();
+        initialize_cash_register();
+        initialize_money_objects();
+        initialize_timer();
     }
 
     @Override

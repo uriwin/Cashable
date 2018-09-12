@@ -22,46 +22,67 @@ public class Infinity extends BasicGame {
     private long play_time = 16000;
     TextView[] count_down_views = new TextView[1];
     int player_id = 0;
-
+    TextView Score_view;
+    ImageButton reset_cash_register_button;
+    Money[] money_objects;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.infinity_layout);
 
+        cash_values = Arrays.asList(200, 100, 80, 70, 50, 40, 35, 20);
+        reset_cash_register_button = (ImageButton) findViewById(R.id.reset_cash_register_sum);
 
+        initialize_score();
+        initialize_timer();
+        initialize_money_objects();
+        initialize_cash_registers();
+        initialize_target();
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        cash_registers[player_id].reset_cash_register(reset_cash_register_button, cash_registers_views[player_id]);
+        timer.start_count_down_timer();
+        MoveMoney(cash_registers, money_objects, cash_registers_views, target_numbers, Score_view, player_id);
+    }
+
+    private void initialize_score() {
         players_score = new int[1];
         players_score[player_id] = 0;
-        cash_values = Arrays.asList(200, 100, 80, 70, 50, 40, 35, 20);
+        Score_view = findViewById(R.id.score_view);
+    }
 
-
-        CashRegister[] cash_registers = new CashRegister[1];
-        TextView[] cash_registers_views = new TextView[1];
-        Target[] target_numbers = new Target[1];
-
+    private void initialize_cash_registers() {
+        cash_registers = new CashRegister[1];
+        cash_registers_views = new TextView[1];
         cash_registers[player_id] = new CashRegister((ImageView) findViewById(R.id.cash_register));
         cash_registers_views[player_id] = (TextView) findViewById(R.id.cash_register_sum);
-        final TextView Score_view = (TextView) findViewById(R.id.score_view);
-        count_down_views[player_id] = (TextView) findViewById(R.id.timerTextView);
 
+    }
+
+    public void initialize_target() {
+        target_numbers = new Target[1];
         int final_target_number = get_next_target_number();
         target_numbers[player_id] = new Target(final_target_number, (TextView) findViewById(R.id.target_number), 999);
+    }
 
-        ImageButton reset_cash_register_button = (ImageButton) findViewById(R.id.reset_cash_register_sum);
-        cash_registers[player_id].reset_cash_register(reset_cash_register_button, cash_registers_views[player_id]);
+    private void initialize_timer() {
+        count_down_views = new TextView[1];
+        count_down_views[player_id] = (TextView) findViewById(R.id.timerTextView);
+        create_count_down_timer(play_time, count_down_views);
+        timer = new Timer(count_down_timer);
+    }
 
+    private void initialize_money_objects() {
         int[] money_objects_value = new int[]{200, 80, 35, 40, 20, 50, 70, 100};
         ImageView[] money_objects_view = new ImageView[]{findViewById(R.id.fifty_euro), findViewById(R.id.twenty_euro), findViewById(R.id.ten_dollar),
                 findViewById(R.id.ten_euro), findViewById(R.id.twenty_shekels), findViewById(R.id.fifty_shekels), findViewById(R.id.twenty_dollars), findViewById(R.id.one_hundread_shekels)};
 
-        Money[] money_objects = get_money_objects(money_objects_value, money_objects_view);
-
-
-        create_count_down_timer(play_time, count_down_views);
-        timer = new Timer(count_down_timer);
-        timer.start_count_down_timer();
-
-        MoveMoney(cash_registers, money_objects, cash_registers_views, target_numbers, Score_view, player_id);
+        money_objects = get_money_objects(money_objects_value, money_objects_view);
     }
 
     public void reached_to_target_number(Target[] targets_number, CashRegister[] cash_registers, TextView[] cash_registers_views, int player_id) {
@@ -80,7 +101,7 @@ public class Infinity extends BasicGame {
     @Override
     public void game_over() {
 
-        Intent intent = new Intent(Infinity.this,GameOverSoloMode.class);
+        Intent intent = new Intent(Infinity.this, GameOverSoloMode.class);
         intent.putExtra("score", players_score[player_id]);
         intent.putExtra("activity mode intent", Infinity.class);
         startActivity(intent);

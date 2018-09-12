@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
@@ -23,7 +22,7 @@ public class ScoreAgainstTime extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.score_window_against_time);
+        setContentView(R.layout.game_over_window);
 
         int final_score = getIntent().getIntExtra("Score",10);
 

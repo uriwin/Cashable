@@ -1,12 +1,16 @@
 package com.example.myapplication.sampledata.mygame.Activities.MoneyAppObjects;
 
 import android.annotation.SuppressLint;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.myapplication.R;
 
 import java.util.List;
 import java.util.Random;
@@ -18,6 +22,12 @@ public abstract class BasicGame extends AppCompatActivity {
     protected long sec_to_reach_target_number = 0;
     protected Timer timer;
     protected List<Integer> cash_values;
+    protected CountDownTimer count_down_timer;
+    protected CashRegister[] cash_registers;
+    protected Target[] target_numbers;
+    protected TextView[] cash_registers_views;
+    protected TextView[] count_down_views;
+
 
 
     public Money[] get_money_objects(int[] money_objects_value, ImageView[] money_objects_view) {
@@ -107,14 +117,14 @@ public abstract class BasicGame extends AppCompatActivity {
         }
     }
 
-    //return random number between 100-999;
+    //return random number between 1-max random number;
     public int get_random_number(int max_random_number) {
         int min_random_number = 1;
         Random random = new Random();
         return (min_random_number + random.nextInt(max_random_number - min_random_number));
     }
 
-    // add score whenever cash enters to the safe box;
+
     public int get_target_score() {
         double score_of_time = 175;
         double time_average = min_clicks_to_reach_target_number;
@@ -135,6 +145,47 @@ public abstract class BasicGame extends AppCompatActivity {
         Log.d("score", "added to score: " + String.valueOf(score_of_time));
         return (int) score_of_time;
     }
+
+    public void create_count_down_timer(long time_remaining, TextView[] count_down_views) {
+        count_down_timer = new CountDownTimer(time_remaining, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                for (TextView count_down_view : count_down_views) {
+                    count_down_view.setText(String.valueOf(millisUntilFinished / 1000));
+                }
+                sec_to_reach_target_number += 1;
+                if (10000 > millisUntilFinished) {
+                    for (TextView count_down_view : count_down_views) {
+                        count_down_view.setBackgroundResource(R.drawable.clock_end_of_time);
+                    }
+
+                }
+            }
+
+            public void onFinish() {
+                for (TextView count_down_view : count_down_views) {
+                    count_down_view.setText(String.valueOf(0));
+                }
+                count_down_timer.cancel();
+                game_over();
+            }
+        };
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if ((keyCode == KeyEvent.KEYCODE_BACK))
+        {
+            Log.d("timer", "cancel timer");
+            timer.cancel_count_down_timer();
+            finish();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    public abstract void game_over();
+
 
 }
 

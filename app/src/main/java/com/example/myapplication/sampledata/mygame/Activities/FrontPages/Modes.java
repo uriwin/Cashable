@@ -4,9 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Display;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.myapplication.R;
@@ -30,6 +28,7 @@ public class Modes extends AppCompatActivity {
             public void onClick(View view)
             {
                 Log.d("Botton Event","Against Time mode");
+                
                 Intent intent = new Intent(Modes.this,AgainstTime.class);
                 startActivity(intent);
             }
@@ -40,6 +39,7 @@ public class Modes extends AppCompatActivity {
             public void onClick(View view)
             {
                 Log.d("Botton Event","One vs One mode");
+                
                 Intent intent = new Intent(Modes.this,OneVsOne.class);
                 startActivity(intent);
             }
@@ -50,6 +50,7 @@ public class Modes extends AppCompatActivity {
             public void onClick(View view)
             {
                 Log.d("Botton Event","One vs One mode");
+                
                 Intent intent = new Intent(Modes.this,Infinity.class);
                 startActivity(intent);
             }
@@ -61,6 +62,7 @@ public class Modes extends AppCompatActivity {
             public void onClick(View view)
             {
                 Log.d("Botton Event"," Back to menu");
+                
                 Intent intent = new Intent(Modes.this,MainActivity.class);
                 startActivity(intent);
             }

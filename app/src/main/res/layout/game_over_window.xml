@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.dana.mygame.Activities.MainActivity"
+    tools:context="com.example.myapplication.sampledata.mygame.Activities.FrontPages.GameOverSoloMode"
     android:background="@drawable/dark_bg">
 
 
@@ -23,11 +23,11 @@
         android:layout_marginTop="132dp" />
 
     <TextView
-        android:id="@+id/cashable"
+        android:id="@+id/cashAble"
         android:layout_width="295dp"
         android:layout_height="103dp"
         android:lineSpacingExtra="10sp"
-        android:text="Cashable"
+        android:text="@string/cashable"
         android:textAlignment="center"
         android:textSize="@android:dimen/notification_large_icon_height"
         android:textStyle="bold|italic"
@@ -39,10 +39,10 @@
         app:layout_constraintVertical_bias="0.071" />
 
     <Button
-        android:id="@+id/against_time"
+        android:id="@+id/play_again"
         android:layout_width="147dp"
         android:layout_height="73dp"
-        android:text="play again"
+        android:text="@string/play_again"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -54,7 +54,7 @@
         android:id="@+id/menu"
         android:layout_width="147dp"
         android:layout_height="73dp"
-        android:text="BACK TO MENU"
+        android:text="@string/back_to_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.932"
         app:layout_constraintLeft_toLeftOf="parent"

@@ -23,6 +23,7 @@
         <activity android:name=".sampledata.mygame.Activities.GameModesActivities.OneVsOne"></activity>
         <activity android:name=".sampledata.mygame.Activities.GameModesActivities.AgainstTime"></activity>
         <activity android:name=".sampledata.mygame.Activities.FrontPages.Instructions"></activity>
+        <activity android:name=".sampledata.mygame.Activities.FrontPages.GameOverSoloMode"></activity>
     </application>
 
 </manifest>
